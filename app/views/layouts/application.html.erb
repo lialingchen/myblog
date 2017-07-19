@@ -1,16 +1,72 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Myblog</title>
+    <title><%= yield(:title) %> | Postboard</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-   <p class="notice"><%= notice %></p>
-   <p class="alert"><%= alert %></p>
+    <header class="navbar navbar-fixed-top">
+      <div class="container">
+        <nav>
+          <ul class="nav navbar-nav navbar-right">
+           <%= link_to yield(:email),
+                    root_url(email: yield(:email)) \
+                      unless user_session.nil? %>
+            <li><%= link_to "All posts", root_url %></li>
+
+			 <% if current_user %>
+			   <li><%= link_to "New post", new_post_path %></li>
+			     <li><%= link_to('登出', destroy_user_session_path, :method => :delete) %> </li>
+			  <li>  <%= link_to('修改密碼', edit_registration_path(:user)) %></li>
+        
+			  <% else %>
+			   <li> <%= link_to('註冊', new_registration_path(:user)) %></li>
+			   <li> <%= link_to('登入', new_session_path(:user)) %></li>
+			  
+			  <% end %>
+
+
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <% flash.each do |message_type, message| %>
+      <div class="alert alert-<%= message_type %>"><%= message %></div>
+    <% end %>
     <%= yield %>
+    <%= debug(params) if Rails.env.development? %>
+
+
+ <div class="wrap_footer">
+        <div class="group footer_top">
+            <div class="footer first">
+                <h2>About Me</h2>
+                <p>I’m Lia , this is my first rail's project.</p>
+            </div>
+            <div class="footer second">
+                <h2>Phone</h2>
+                <p>please don't call me~</br>lialilingchen@gmail.com</p>
+            </div>
+            <div class="footer third">
+                <h2>Address</h2>
+                <p>Washington, USA </br>6036 Richmond hwy., </br>Alexandria, VA, 2230</p>
+            </div>
+            <div class="footer fourth">
+                <h2>Subscribe to My Newsletter</h2>
+                <form action="">
+                    <input type="text" placeholder="E-mail...">
+                    <button>Send</button>
+                </form>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+        <div class="group footer_bottom">
+            <p>Lia Chen© 2017. <a href="#"><em>Privacy Policy</em></a></p>
+        </div>
+    </div>
   </body>
 </html>
