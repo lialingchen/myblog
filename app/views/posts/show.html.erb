@@ -14,34 +14,49 @@
 <p>
  
 
-<h2>Comments</h2>
-<% @post.comments.each do |comment| %>
-  <p>
-    <b>Commenter:</b>
-    <%= comment.body %>
-  </p>
+<div class="col-md-offset-1 col-md-6" >
+  <div class="row">
+    <div class="col-md-offset-1 col-md-11">
 
-  <p>
-    <b>Comment_email:</b>
-    <%= current_user.email %>
-  </p>
-<% end %>
+        <div class="panel-heading panel-top-offset"> <%= @post.title %> <span class="pull-right">Created <%= time_ago_in_words(@post.created_at) %> ago by <%= @post.user.email %></span>
+        <div class="panel-body"><p><%= @post.text %></p>
+        
+        </div>
 
-<h2>Add a comment:</h2>
-<%= form_for([@post, @post.comments.build]) do |f| %>
+       
+
+    </div>
+  </div>
+</div>
+
+
+
+<div class="comment-content">
+<div class= "comment-content">
+    <div class="col-md-10">
+     <h2>Comments</h2>     
+      <% if @post.comments.any?%>
+          <div id="comments">
+            <%= render @comments %> 
+            <div id="comment-append"></div>
+          </div>       
+      <% else %>
+        <h3>There is no any comment.</h3>
+      <% end %>
+    </div>
+</div>
+ 
   
 
-  <div class="field">
-    <%= f.label :comment %><br />
-    <%= f.text_field :body %>
-  </div>
- 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+  <%= simple_form_for [@post, @comment], remote: true do |f| %>
+      <div class="form-group">
+        <%= f.input :body, input_html: { :class => "form-control" }, :style => "background-color: transparent" %>
+      </div>
+      <%= f.submit "Submit", data: { disable_with: "Submitting..." } %>
+    <% end %>
+  
+  <br />
+</div>
 
-<br />
-
-<%= link_to 'Edit Post', edit_post_path(@post) %> |
-<%= link_to 'Back to Posts', posts_path %> |
+<%= link_to 'Edit Post', edit_post_path(@post) %> 
+<%= link_to 'Back to Posts', posts_path %> 

@@ -1,0 +1,5 @@
+<% if @comment.new_record? %>
+	alert("You should input your comment!");
+<% else %>
+	$("#comment-append").append("<%= j render @comment %>");
+<% end %>

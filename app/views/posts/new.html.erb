@@ -1,14 +1,4 @@
 <% provide(:title, "New Post") %>
 
 <h1>New Post</h1>
-<div class="form">
-<%= form_for :post, url: posts_path do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %><br>
-
-  <%= f.label :text %>
-  <%= f.text_area :text %><br>
-<br>
-  <%= f.submit "Submit", class: "btn btn-primary btn-lg"%>
-<% end %>
-</div>
+<%= render partial: 'form' %>

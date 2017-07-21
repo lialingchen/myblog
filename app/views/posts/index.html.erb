@@ -22,8 +22,7 @@
           <%= "#{post.user.email}" %>
         <% end %>
       </em>
-      <%= link_to post.title, post_path(post) %><br>
-      <%= link_to('new comments', new_post_comment_path(post.id)) %>
+      <%= link_to 'See comments', post_path(post) %><br>
     </div>
     <% end %>
 </div>

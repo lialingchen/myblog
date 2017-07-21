@@ -14,111 +14,111 @@
  // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
 @import "bootstrap-sprockets";
 @import "bootstrap";
-body { 
-	text-align: center;
-     padding-top: 80px;
-}
-.navbar{
-    background-color:#E0FEFE;
-	
-}
-.clearfix {
-        clear: both;
-}
-.a{
-	text-decoration: none;
-	color:  #151515;
-}
-nav{
-	font-size: 0;
-}
-nav li{
-	display: inline-block;
-	font-size: 16px;
-	padding: 0 2px;
-}
+	body { 
+		text-align: center;
+	     padding-top: 80px;
+	}
+	.navbar{
+	    background-color:#E0FEFE;
+		
+	}
+	.clearfix {
+	        clear: both;
+	}
+	.a{
+		text-decoration: none;
+		color:  #151515;
+	}
+	nav{
+		font-size: 0;
+	}
+	nav li{
+		display: inline-block;
+		font-size: 16px;
+		padding: 0 2px;
+	}
 
-nav li +li{
-	border-left: 0.5px solid rgba(0,0,0,0.3);
-}
+	nav li +li{
+		border-left: 0.5px solid rgba(0,0,0,0.3);
+	}
 
-nav a{
-	display: block;
-	padding: 6px 20px;
-	text-decoration: none;
-	transition: 0.5s;
-}
+	nav a{
+		display: block;
+		padding: 6px 20px;
+		text-decoration: none;
+		transition: 0.5s;
+	}
 
-nav a:hover{
-	background-color: #ccc;
-	color: #fff;
-	border-radius: 1000px;
-}
-.user-gravatar {
-    display: inline-block;
-    width: 32px;
-    position: relative;
-    margin: 0;
-}
+	nav a:hover{
+		background-color: #ccc;
+		color: #fff;
+		border-radius: 1000px;
+	}
+	.user-gravatar {
+	    display: inline-block;
+	    width: 32px;
+	    position: relative;
+	    margin: 0;
+	}
 
-.user-gravatar img {
-    position: absolute;
-    width: 32px;
-    height: 32px;
-    border-radius: 16px;
-    top: -22px;
-}
-
-
-.form {
-  text-align: left;
-  padding: 0 36%;
-  div {
-    margin-bottom: 4px;
-  }
-  .btn {
-    margin-bottom: 4px;
-  }
-}
-
-form > label {
-  width: 100%;
-  font-size: 1.5em;
-}
-
-form > input {
-  width: 100%;
-  margin-bottom: 12px;
-}
+	.user-gravatar img {
+	    position: absolute;
+	    width: 32px;
+	    height: 32px;
+	    border-radius: 16px;
+	    top: -22px;
+	}
 
 
+	.form {
+	  text-align: left;
+	  padding: 0 36%;
+	  div {
+	    margin-bottom: 4px;
+	  }
+	  .btn {
+	    margin-bottom: 4px;
+	  }
+	}
+
+	form > label {
+	  width: 100%;
+	  font-size: 1.5em;
+	}
+
+	form > input {
+	  width: 100%;
+	  margin-bottom: 12px;
+	}
 
 
-.col-md-4 {
-  text-align: left;
-  margin: 0 30%;
-  padding:  12px 24px;
-  border: 1px solid black;
-  border-radius: 12px;
-  margin-bottom: 12px;
-  background-color: #EBEFEB;
-}
-.postboard{
-        width: 380px;
-        margin: 30px;
-        padding: 20px;
-        background-color: red;
-        float: left;
-        height: 260px;
-}
-.postboard {
-  margin-bottom: 30px;
-}
-.person_img {
-        float: left;
-        padding: 30px 0px;
-        width: 25%;
-}
+
+
+	.col-md-4 {
+	  text-align: left;
+	  margin: 0 30%;
+	  padding:  12px 24px;
+	  border: 1px solid black;
+	  border-radius: 12px;
+	  margin-bottom: 12px;
+	 
+	}
+	.postboard{
+	        width: 380px;
+	        margin: 30px;
+	        padding: 20px;
+	        background-color: red;
+	        float: left;
+	        height: 260px;
+	}
+	.postboard {
+	  margin-bottom: 30px;
+	}
+	.person_img {
+	        float: left;
+	        padding: 30px 0px;
+	        width: 25%;
+	}
     .wrap_footer {
         background-color: #313131;
     }
