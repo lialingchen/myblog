@@ -1,32 +1,25 @@
 
 <p class="notice"><%= notice %></p>
 
-<p>
-  <b>Title:</b>
-  <%= @post.title %>
-</p>
-
-<p>
-  <b>Text:</b>
-  <%= @post.text %>
-</p>
-
-<p>
- 
-
-<div class="col-md-offset-1 col-md-6" >
-  <div class="row">
-    <div class="col-md-offset-1 col-md-11">
-
-        <div class="panel-heading panel-top-offset"> <%= @post.title %> <span class="pull-right">Created <%= time_ago_in_words(@post.created_at) %> ago by <%= @post.user.email %></span>
-        <div class="panel-body"><p><%= @post.text %></p>
-        
-        </div>
-
-       
-
+<div class="row">
+    <div class="col-md-4">
+      <h2><%= @post.title %></h2>
+      <p><%= @post.text %></p>
+            <em>---- by 
+                <% if user_session.nil? %>
+                  <%= "********" %> 
+                  <%= link_to "(Sign in to see)", signin_path %>
+                  Created <%= time_ago_in_words(@post.created_at) %> ago
+                <% else %>
+                 
+                  Created <%= time_ago_in_words(@post.created_at) %> ago by <%= "#{@post.user.email}" %>
+                <% end %>
+                <% if current_user == @post.user %>
+                    <%= link_to 'Edit Post', edit_post_path(@post) %> 
+                <% end %>
+                <%= link_to 'Back to Posts', posts_path %> 
+            </em>
     </div>
-  </div>
 </div>
 
 
@@ -58,5 +51,3 @@
   <br />
 </div>
 
-<%= link_to 'Edit Post', edit_post_path(@post) %> 
-<%= link_to 'Back to Posts', posts_path %> 
